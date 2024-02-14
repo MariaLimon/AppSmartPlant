@@ -14,7 +14,16 @@
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+    <StackLayout Padding="50">
+        <Image></Image>
+        <Label Text="Nombre" FontSize="Large"/>
+        <Entry Placeholder="Nombre de la planta" Keyboard="Text"/>
+
+        <Label Text="Tipo" FontSize="Large"/>
+        <Entry Placeholder="Tipo de planta" Keyboard="Text"/>
+
+        <Button Text="Agregar" CornerRadius="10" Margin="10,20"/>
+    </StackLayout>
 
 
 </ContentPage>
