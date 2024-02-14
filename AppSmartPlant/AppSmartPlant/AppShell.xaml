@@ -33,9 +33,9 @@
     <TabBar>
         <ShellContent Title="Home" Icon="icon_home.png" Route="AboutPage" ContentTemplate="{DataTemplate local:HomePage}" />
         <ShellContent Title="Add" Icon="icon_add.png" ContentTemplate="{DataTemplate local:AddPage}" />
-        <ShellContent Title="Profile" Icon="icon_user.png" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Title="Profile" Icon="icon_user.png" ContentTemplate="{DataTemplate local:UserPage}" />
 
-
+        <ShellContent Title="Pruebas vistas" Icon="icon_alert" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
 
     <!--

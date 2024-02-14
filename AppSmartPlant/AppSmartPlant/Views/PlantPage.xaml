@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
+             x:Class="AppSmartPlant.Views.PlantPage" 
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:PlantViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="40">
+        <ImageButton Source="icon_historial" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand"/>
+        <Image Source="img_arbol" WidthRequest="160"/>
+
+        <Label Text="Nombre" FontSize="Large"/>
+        <Entry Text="" Keyboard="Text"/>
+
+        <Label Text="Tipo" FontSize="Large"/>
+        <Entry Text="" Keyboard="Text"/>
+
+        <Label Text="Humedad" FontSize="Large"/>
+        <Entry Text="" />
+
+        <Label Text="Tamaño" FontSize="Large"/>
+        <Entry Text=""/>
+
+        <Grid >
+            <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>
+            <Switch Grid.Row="0" Grid.Column="1" />
+
+            <Button Grid.Row="1" Grid.Column="0" Text="Editar" CornerRadius="10" />
+            <Button Grid.Row="1" Grid.Column="1" Text="Eliminar" CornerRadius="10" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

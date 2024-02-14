@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSmartPlant.Views.EditPage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
-             x:Class="AppSmartPlant.Views.AddPage"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:AddViewModel />
+        <vm:EditViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -14,6 +14,7 @@
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <StackLayout Padding="50">
         <Image Source="img_arbol"/>
         <Label Text="Nombre" FontSize="Large"/>
@@ -22,7 +23,7 @@
         <Label Text="Tipo" FontSize="Large"/>
         <Entry Placeholder="Tipo de planta" Keyboard="Text"/>
 
-        <Button Text="Agregar" CornerRadius="10" Margin="10,20"/>
+        <Button Text="Guardar" CornerRadius="10" Margin="10,20"/>
     </StackLayout>
 
 

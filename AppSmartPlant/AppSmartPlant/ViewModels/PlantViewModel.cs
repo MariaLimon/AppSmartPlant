@@ -10,11 +10,11 @@ using AppSmartPlant.Models;
 
 namespace AppSmartPlant.ViewModels
 {
-	public class AddViewModel : BaseViewModel
+	public class PlantViewModel : BaseViewModel
 	{
-		public AddViewModel()
+		public PlantViewModel()
 		{
-			Title = "Add";
+			Title = "Smart Plant";
 			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
 		}
 
@@ -23,7 +23,7 @@ namespace AppSmartPlant.ViewModels
 		string _Texto;
 		#endregion
 		#region CONSTRUCTOR
-		public AddViewModel(INavigation navigation)
+		public PlantViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}

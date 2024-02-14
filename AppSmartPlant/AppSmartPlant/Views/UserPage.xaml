@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
-             x:Class="AppSmartPlant.Views.AddPage"
+             x:Class="AppSmartPlant.Views.UserPage"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:AddViewModel />
+        <vm:UserViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -15,14 +15,18 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Padding="50">
-        <Image Source="img_arbol"/>
-        <Label Text="Nombre" FontSize="Large"/>
-        <Entry Placeholder="Nombre de la planta" Keyboard="Text"/>
+        <Image Source="img_usuario" WidthRequest="200" Margin="50"/>
+        
+        <Label Text="Nombre de usuario" FontSize="Large"/>
+        <Entry Text="" Keyboard="Text" IsReadOnly="True"/>
 
-        <Label Text="Tipo" FontSize="Large"/>
-        <Entry Placeholder="Tipo de planta" Keyboard="Text"/>
+        <Label Text="Email" FontSize="Large"/>
+        <Entry Text="" Keyboard="Text" IsReadOnly="True"/>
+        
+        <Label Text="Password" FontSize="Large"/>
+        <Entry Text="" Keyboard="Text" IsReadOnly="True"/>
 
-        <Button Text="Agregar" CornerRadius="10" Margin="10,20"/>
+ 
     </StackLayout>
 
 
