@@ -3,17 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSmartPlant.Views.HomePage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
-             Title="{Binding Title}">
+             Title="Home">
 
-    <ContentPage.BindingContext>
-        <vm:HomeViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
+    <CollectionView
+            ItemsSource="{Binding ListaPlanta}"
+            Margin="0,0,0,0"
+            x:Name="collection"
+        BackgroundColor="Gray">
+
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical"
+                                 HorizontalItemSpacing="10"
+                                 Span="1"
+                                 VerticalItemSpacing="10"
+                                 />
 
 
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <SwipeView Padding="5">
+
+                    <SwipeView.LeftItems>
+                        <SwipeItems>
+                            <SwipeItem Text="Editar" 
+                                       BackgroundColor="Orange" 
+                                       Command="{Binding BindingContext.ActualizarCommand, Source={x:Reference collection}}" 
+                                       CommandParameter="{Binding .}" />
+
+                        </SwipeItems>
+                    </SwipeView.LeftItems>
+                    <SwipeView.RightItems>
+                        <SwipeItems>
+                            <SwipeItem Text="Eliminar" 
+                                       BackgroundColor="Red" 
+                                       Command="{Binding BindingContext.EliminarCommand, Source={x:Reference collection}}" 
+                                       CommandParameter="{Binding .}" />
+                            
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+
+                    <StackLayout Orientation="Vertical" Margin="15" >
+                        <Grid>
+                            <Image Grid.Column="0" 
+                                   Source="icon_home" 
+                                   WidthRequest="100" 
+                                   HorizontalOptions="StartAndExpand"/>
+                            
+                            <Label Grid.Column="1" 
+                                   Text="{Binding NamePlant}" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1" 
+                                   Text="{Binding TypePlant}"
+                                   FontSize="15"/>
+                        </Grid>
+                        
+                    </StackLayout>
+
+                </SwipeView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
 </ContentPage>

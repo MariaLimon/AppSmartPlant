@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSmartPlant.Views.SingupPage">
+    <ContentPage.Content>
+        <StackLayout Padding="50">
+            <Image Source="img_smat_hoja" WidthRequest="100"/>
+            <Label  Text="Smart Plant" FontSize="30" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold" Margin="10"/>
+
+            <Label Text="Sing up" FontSize="25"/>
+            <StackLayout Margin="0,5">
+                <Label Text="Nombre" FontSize="Large"/>
+                <Entry Placeholder="Nombre de usuario" Keyboard="Text"/>
+                
+                <Label Text="Email" FontSize="Large"/>
+                <Entry Placeholder="Correo electronico" Keyboard="Email"/>
+
+                <Label Text="Password" FontSize="Large"/>
+                <Entry Placeholder="Password" IsPassword="True"/>
+
+                <Button Text="Sign up" CornerRadius="10"/>
+
+                <!--<Label Text="Sing up" HorizontalOptions="EndAndExpand" FontSize="20"/>-->
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

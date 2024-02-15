@@ -1,5 +1,4 @@
-﻿using AppSmartPlant.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppSmartPlant.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
+	public partial class SingupPage : ContentPage
 	{
-		public HomePage ()
+		public SingupPage ()
 		{
 			InitializeComponent ();
-			BindingContext = new HomeViewModel(Navigation);
 		}
 	}
 }

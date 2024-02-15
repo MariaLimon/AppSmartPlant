@@ -35,7 +35,7 @@
         <ShellContent Title="Add" Icon="icon_add.png" ContentTemplate="{DataTemplate local:AddPage}" />
         <ShellContent Title="Profile" Icon="icon_user.png" ContentTemplate="{DataTemplate local:UserPage}" />
 
-        <ShellContent Title="Pruebas vistas" Icon="icon_alert" ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Title="Pruebas vistas" Icon="icon_alert" ContentTemplate="{DataTemplate local:SingupPage}" />
     </TabBar>
 
     <!--

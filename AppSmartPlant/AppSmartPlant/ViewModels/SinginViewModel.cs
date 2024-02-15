@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace AppSmartPlant.ViewModels
 {
-	public class LoginViewModel : BaseViewModel
+	public class SinginViewModel : BaseViewModel
 	{
 		public Command LoginCommand { get; }
 
-		public LoginViewModel()
+		public SinginViewModel()
 		{
 			LoginCommand = new Command(OnLoginClicked);
 		}

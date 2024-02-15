@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppSmartPlant.Views.LoginPage">
+             x:Class="AppSmartPlant.Views.SinginPage">
     <ContentPage.Content>
         <StackLayout Padding="50">
             <Image Source="img_smat_hoja" WidthRequest="100"/>
@@ -11,7 +11,7 @@
             <StackLayout Margin="0,5">
                 <Label Text="Email" FontSize="Large"/>
                 <Entry Placeholder="Correo electronico" Keyboard="Email"/>
-            
+
                 <Label Text="Password" FontSize="Large"/>
                 <Entry Placeholder="Password" IsPassword="True"/>
 
@@ -19,7 +19,7 @@
 
                 <Label Text="Sing up" HorizontalOptions="EndAndExpand" FontSize="20"/>
             </StackLayout>
-            
+
 
         </StackLayout>
     </ContentPage.Content>

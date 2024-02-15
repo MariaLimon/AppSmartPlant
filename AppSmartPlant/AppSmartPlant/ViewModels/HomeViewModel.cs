@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using AppSmartPlant.Models;
+using AppSmartPlant.Datos;
 
 namespace AppSmartPlant.ViewModels
 {
@@ -13,27 +14,21 @@ namespace AppSmartPlant.ViewModels
 	{
 		public HomeViewModel()
 		{
-			Title = "Home";
 			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
 		}
 
 
 		#region VARIABLES
-		string _Texto;
 		ObservableCollection<Mplanta> _listaPlanta;
 		#endregion
 		#region CONSTRUCTOR
 		public HomeViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			MostrarPlantas();
 		}
 		#endregion
 		#region OBJETOS
-		public string Texto
-		{
-			get { return _Texto; }
-			set { SetValue(ref _Texto, value); }
-		}
 		public ObservableCollection<Mplanta> ListaPlanta
 		{
 			get { return _listaPlanta; }
@@ -46,18 +41,16 @@ namespace AppSmartPlant.ViewModels
 		}
 		#endregion
 		#region PROCESOS
-		public async Task ProcesoAsyncrono()
+		public async Task MostrarPlantas()
 		{
-			await DisplayAlert("Titulo", "Mensaje", "Ok");
+			var funcion = new Dplant();
+			ListaPlanta = await funcion.MostrarPlantas();
 		}
-		public void ProcesoSimple()
-		{
 
-		}
 		#endregion
 		#region COMANDOS
-		public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-		public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+
+
 		#endregion
 
 		public ICommand OpenWebCommand { get; }
