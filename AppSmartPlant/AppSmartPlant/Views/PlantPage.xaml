@@ -3,11 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
              x:Class="AppSmartPlant.Views.PlantPage" 
-             Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <vm:PlantViewModel />
-    </ContentPage.BindingContext>
+             Title="Planta"
+             x:Name="page">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,15 +12,15 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Padding="40">
-        <ImageButton Source="icon_historial" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand"/>
+    <StackLayout Padding="40" x:Name="Da">
+        <ImageButton Source="icon_historial" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand" Command="{Binding CommandHistoryPage}"/>
         <Image Source="img_arbol" WidthRequest="160"/>
 
         <Label Text="Nombre" FontSize="Large"/>
-        <Entry Text="" Keyboard="Text"/>
+        <Entry Text="{Binding parametrosRecibe.NamePlant}" Keyboard="Text"/>
 
         <Label Text="Tipo" FontSize="Large"/>
-        <Entry Text="" Keyboard="Text"/>
+        <Entry Text="{Binding parametrosRecibe.TypePlant}" Keyboard="Text"/>
 
         <Label Text="Humedad" FontSize="Large"/>
         <Entry Text="" />
@@ -35,7 +32,7 @@
             <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>
             <Switch Grid.Row="0" Grid.Column="1" />
 
-            <Button Grid.Row="1" Grid.Column="0" Text="Editar" CornerRadius="10" />
+            <Button Grid.Row="1" Grid.Column="0" Text="Editar" CornerRadius="10" Command="{Binding BindingContext.CommandEditPage}" CommandParameter="{Binding .}"/>
             <Button Grid.Row="1" Grid.Column="1" Text="Eliminar" CornerRadius="10" />
         </Grid>
     </StackLayout>

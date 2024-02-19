@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
              x:Class="AppSmartPlant.Views.UserPage"
-             Title="{Binding Title}">
+             Title="Perfil">
 
     <ContentPage.BindingContext>
         <vm:UserViewModel />

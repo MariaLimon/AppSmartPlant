@@ -3,23 +3,45 @@ using MvvmGuia.VistaModelo;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace AppSmartPlant.ViewModels
 {
 	public class SinginViewModel : BaseViewModel
 	{
-		public Command LoginCommand { get; }
+		#region VARIABLES
 
-		public SinginViewModel()
+		#endregion
+		#region CONSTRUCTOR
+		public SinginViewModel(INavigation navigation)
 		{
-			LoginCommand = new Command(OnLoginClicked);
+			Navigation = navigation;
+		}
+		#endregion
+		#region OBJETOS
+		
+		#endregion
+		#region PROCESOS
+		public async Task SingIn()
+		{
+			Application.Current.MainPage = new AppShell();
+			await Navigation.PushAsync(new HomePage());
 		}
 
-		private async void OnLoginClicked(object obj)
+		public async Task SingUp()
 		{
-			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-			await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+			await Navigation.PushAsync(new SingupPage());
 		}
+		
+
+
+		#endregion
+		#region COMANDOS
+		public ICommand CommandHomePage => new Command(async () => await SingIn());
+		public ICommand CommandSingUp => new Command(async () => await SingUp());
+
+		#endregion
 	}
 }

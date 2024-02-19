@@ -1,6 +1,4 @@
-﻿using AppSmartPlant.Models;
-using AppSmartPlant.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppSmartPlant.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditPage : ContentPage
+	public partial class PlantHistoryPage : ContentPage
 	{
-		public EditPage(Mplanta parametros)
+		public PlantHistoryPage ()
 		{
-			InitializeComponent();
-			BindingContext = new EditViewModel(Navigation, parametros);
+			InitializeComponent ();
 		}
 	}
 }

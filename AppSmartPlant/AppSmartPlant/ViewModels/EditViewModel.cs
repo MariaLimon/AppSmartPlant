@@ -12,20 +12,15 @@ namespace AppSmartPlant.ViewModels
 {
 	public class EditViewModel : BaseViewModel
 	{
-		public EditViewModel()
-		{
-			Title = "Edit";
-			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
-		}
-
-
 		#region VARIABLES
 		string _Texto;
+		public Mplanta parametrosRecibe { get; set; }
 		#endregion
 		#region CONSTRUCTOR
-		public EditViewModel(INavigation navigation)
+		public EditViewModel(INavigation navigation, Mplanta parametrosTrae)
 		{
 			Navigation = navigation;
+			parametrosRecibe = parametrosTrae;
 		}
 		#endregion
 		#region OBJETOS
@@ -37,20 +32,11 @@ namespace AppSmartPlant.ViewModels
 		
 		#endregion
 		#region PROCESOS
-		public async Task ProcesoAsyncrono()
-		{
-			await DisplayAlert("Titulo", "Mensaje", "Ok");
-		}
-		public void ProcesoSimple()
-		{
-
-		}
+		
 		#endregion
 		#region COMANDOS
-		public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-		public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+	
 		#endregion
 
-		public ICommand OpenWebCommand { get; }
 	}
 }

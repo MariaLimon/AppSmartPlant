@@ -3,11 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSmartPlant.Views.EditPage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
-             Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <vm:EditViewModel />
-    </ContentPage.BindingContext>
+             Title="Editar">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -18,10 +14,10 @@
     <StackLayout Padding="50">
         <Image Source="img_arbol"/>
         <Label Text="Nombre" FontSize="Large"/>
-        <Entry Placeholder="Nombre de la planta" Keyboard="Text"/>
+        <Entry Placeholder="Nombre de la planta" Keyboard="Text" Text="{Binding parametrosRecibe.NamePlant}"/>
 
         <Label Text="Tipo" FontSize="Large"/>
-        <Entry Placeholder="Tipo de planta" Keyboard="Text"/>
+        <Entry Placeholder="Tipo de planta" Keyboard="Text" Text="{Binding parametrosRecibe.TypePlant}"/>
 
         <Button Text="Guardar" CornerRadius="10" Margin="10,20"/>
     </StackLayout>

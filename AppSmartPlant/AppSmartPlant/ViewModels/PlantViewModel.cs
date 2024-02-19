@@ -6,26 +6,21 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using AppSmartPlant.Models;
-
+using AppSmartPlant.Views;
 
 namespace AppSmartPlant.ViewModels
 {
 	public class PlantViewModel : BaseViewModel
 	{
-		public PlantViewModel()
-		{
-			Title = "Smart Plant";
-			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
-		}
-
-
 		#region VARIABLES
 		string _Texto;
+		public Mplanta parametrosRecibe { get; set; }
 		#endregion
 		#region CONSTRUCTOR
-		public PlantViewModel(INavigation navigation)
+		public PlantViewModel(INavigation navigation, Mplanta parametrosTrae)
 		{
 			Navigation = navigation;
+			parametrosRecibe = parametrosTrae;
 		}
 		#endregion
 		#region OBJETOS
@@ -37,20 +32,20 @@ namespace AppSmartPlant.ViewModels
 		
 		#endregion
 		#region PROCESOS
-		public async Task ProcesoAsyncrono()
+		public async Task Editar(Mplanta parametros)
 		{
-			await DisplayAlert("Titulo", "Mensaje", "Ok");
+			await Navigation.PushAsync(new EditPage(parametros));
 		}
-		public void ProcesoSimple()
-		{
 
+		public async Task History()
+		{
+			await Navigation.PushAsync(new PlantHistoryPage());
 		}
 		#endregion
 		#region COMANDOS
-		public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-		public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
-		#endregion
+		public ICommand CommandEditPage => new Command<Mplanta>(async (p) => await Editar(p));
+		public ICommand CommandHistoryPage => new Command(async () => await History());
 
-		public ICommand OpenWebCommand { get; }
+		#endregion
 	}
 }

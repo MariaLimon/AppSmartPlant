@@ -14,7 +14,7 @@ namespace AppSmartPlant
 			InitializeComponent();
 
 			DependencyService.Register<MockDataStore>();
-			MainPage = new AppShell();
+			MainPage = new NavigationPage( new SinginPage());
 		}
 
 		protected override void OnStart()

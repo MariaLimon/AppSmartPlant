@@ -11,12 +11,13 @@
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <CollectionView
-            ItemsSource="{Binding ListaPlanta}"
-            Margin="0,0,0,0"
-            x:Name="collection"
-        BackgroundColor="Gray">
+  
+    <CollectionView ItemsSource="{Binding ListaPlanta}"
+                    Margin="0,0,0,0"
+                    x:Name="collection"
+                    BackgroundColor="Gray"
+                    SelectionMode="Single">
+        
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical"
@@ -27,16 +28,17 @@
 
 
         </CollectionView.ItemsLayout>
+        
 
         <CollectionView.ItemTemplate>
+           
             <DataTemplate>
                 <SwipeView Padding="5">
-
                     <SwipeView.LeftItems>
                         <SwipeItems>
                             <SwipeItem Text="Editar" 
                                        BackgroundColor="Orange" 
-                                       Command="{Binding BindingContext.ActualizarCommand, Source={x:Reference collection}}" 
+                                       Command="{Binding BindingContext.CommandEditPage, Source={x:Reference collection}}" 
                                        CommandParameter="{Binding .}" />
 
                         </SwipeItems>
@@ -50,28 +52,44 @@
                             
                         </SwipeItems>
                     </SwipeView.RightItems>
+                    <SwipeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BindingContext.SeleccionarCommand, Source={x:Reference collection}}" CommandParameter="{Binding .}"/>
+                    </SwipeView.GestureRecognizers>
 
-                    <StackLayout Orientation="Vertical" Margin="15" >
-                        <Grid>
-                            <Image Grid.Column="0" 
-                                   Source="icon_home" 
-                                   WidthRequest="100" 
-                                   HorizontalOptions="StartAndExpand"/>
-                            
-                            <Label Grid.Column="1" 
-                                   Text="{Binding NamePlant}" 
-                                   FontSize="20" 
-                                   FontAttributes="Bold"/>
-
-                            <Label Grid.Column="1" 
-                                   Text="{Binding TypePlant}"
-                                   FontSize="15"/>
-                        </Grid>
+                    <StackLayout Orientation="Horizontal" Margin="15" Spacing="10">
+                        <ImageButton Source="icon_home" 
+                                     WidthRequest="100" 
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="StartAndExpand"
+                                     Command="{Binding BindingContext.CommandPlantPage, Source={x:Reference collection}}"
+                                     CommandParameter="{Binding .}"
+                                 
+                        />
                         
+
+
+                        <StackLayout>
+                            <Label Text="{Binding NamePlant}" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   HeightRequest="30"
+                                   WidthRequest="250"/>
+
+                            <Label Text="{Binding TypePlant}"
+                                   FontSize="20"
+                                   TextColor="Black"
+                                   HeightRequest="30"
+                                   WidthRequest="250"/>
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CommandPlantPage}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
 
                 </SwipeView>
             </DataTemplate>
+            
         </CollectionView.ItemTemplate>
 
     </CollectionView>

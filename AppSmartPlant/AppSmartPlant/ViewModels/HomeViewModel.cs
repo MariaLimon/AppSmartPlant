@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using AppSmartPlant.Models;
 using AppSmartPlant.Datos;
+using AppSmartPlant.Views;
 
 namespace AppSmartPlant.ViewModels
 {
@@ -46,9 +47,22 @@ namespace AppSmartPlant.ViewModels
 			var funcion = new Dplant();
 			ListaPlanta = await funcion.MostrarPlantas();
 		}
+		public async Task PlantD(Mplanta parametros)
+		{
+
+			await Navigation.PushAsync(new PlantPage(parametros));
+		}
+		public async Task Editar(Mplanta parametros)
+		{
+
+			await Navigation.PushAsync(new EditPage(parametros));
+		}
 
 		#endregion
 		#region COMANDOS
+		public ICommand CommandPlantPage => new Command<Mplanta>(async (p) => await PlantD(p));
+		public ICommand CommandEditPage => new Command<Mplanta>(async (p) => await Editar(p));
+
 
 
 		#endregion
