@@ -81,6 +81,8 @@
                                    TextColor="Black"
                                    HeightRequest="30"
                                    WidthRequest="250"/>
+                            
+                            
                         </StackLayout>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CommandPlantPage}"></TapGestureRecognizer>

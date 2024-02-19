@@ -11,29 +11,31 @@
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Padding="40" x:Name="Da">
+            <ImageButton Source="icon_historial" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand" Command="{Binding CommandHistoryPage}"/>
+            <Image Source="img_arbol" WidthRequest="160"/>
 
-    <StackLayout Padding="40" x:Name="Da">
-        <ImageButton Source="icon_historial" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand" Command="{Binding CommandHistoryPage}"/>
-        <Image Source="img_arbol" WidthRequest="160"/>
+            <Label Text="Nombre" FontSize="Large"/>
+            <Entry Text="{Binding parametrosRecibe.NamePlant}" Keyboard="Text"/>
 
-        <Label Text="Nombre" FontSize="Large"/>
-        <Entry Text="{Binding parametrosRecibe.NamePlant}" Keyboard="Text"/>
+            <Label Text="Tipo" FontSize="Large"/>
+            <Entry Text="{Binding parametrosRecibe.TypePlant}" Keyboard="Text"/>
 
-        <Label Text="Tipo" FontSize="Large"/>
-        <Entry Text="{Binding parametrosRecibe.TypePlant}" Keyboard="Text"/>
+            <Label Text="Humedad" FontSize="Large"/>
+            <Entry Text="" />
 
-        <Label Text="Humedad" FontSize="Large"/>
-        <Entry Text="" />
+            <Label Text="Tamaño" FontSize="Large"/>
+            <Entry Text=""/>
 
-        <Label Text="Tamaño" FontSize="Large"/>
-        <Entry Text=""/>
+            <Grid >
+                <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>
+                <Switch Grid.Row="0" Grid.Column="1" />
 
-        <Grid >
-            <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>
-            <Switch Grid.Row="0" Grid.Column="1" />
-
-            <Button Grid.Row="1" Grid.Column="0" Text="Editar" CornerRadius="10" Command="{Binding BindingContext.CommandEditPage}" CommandParameter="{Binding .}"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="Eliminar" CornerRadius="10" />
-        </Grid>
-    </StackLayout>
+                <Button Grid.Row="1" Grid.Column="0" Text="Editar" CornerRadius="10" Command="{Binding BindingContext.CommandEditPage}" CommandParameter="{Binding .}"/>
+                <Button Grid.Row="1" Grid.Column="1" Text="Eliminar" CornerRadius="10" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+    
 </ContentPage>
