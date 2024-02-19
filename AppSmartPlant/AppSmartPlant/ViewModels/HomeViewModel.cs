@@ -55,7 +55,7 @@ namespace AppSmartPlant.ViewModels
 		public async Task Editar(Mplanta parametros)
 		{
 
-			await Navigation.PushAsync(new EditPage(parametros));
+			await Navigation.PushAsync(new EditPlantPage(parametros));
 		}
 
 		#endregion

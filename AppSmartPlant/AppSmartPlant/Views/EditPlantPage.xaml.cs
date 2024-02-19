@@ -12,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace AppSmartPlant.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditPage : ContentPage
+	public partial class EditPlantPage : ContentPage
 	{
-		public EditPage(Mplanta parametros)
+		public EditPlantPage(Mplanta parametros)
 		{
 			InitializeComponent();
-			BindingContext = new EditViewModel(Navigation, parametros);
+			BindingContext = new EditPlantViewModel(Navigation, parametros);
 		}
 	}
 }

@@ -10,14 +10,14 @@ using AppSmartPlant.Models;
 
 namespace AppSmartPlant.ViewModels
 {
-	public class EditViewModel : BaseViewModel
+	public class EditPlantViewModel : BaseViewModel
 	{
 		#region VARIABLES
 		string _Texto;
 		public Mplanta parametrosRecibe { get; set; }
 		#endregion
 		#region CONSTRUCTOR
-		public EditViewModel(INavigation navigation, Mplanta parametrosTrae)
+		public EditPlantViewModel(INavigation navigation, Mplanta parametrosTrae)
 		{
 			Navigation = navigation;
 			parametrosRecibe = parametrosTrae;

@@ -56,9 +56,9 @@
                         <TapGestureRecognizer Command="{Binding BindingContext.SeleccionarCommand, Source={x:Reference collection}}" CommandParameter="{Binding .}"/>
                     </SwipeView.GestureRecognizers>
 
-                    <StackLayout Orientation="Horizontal" Margin="15" Spacing="10">
+                    <StackLayout Orientation="Horizontal" Margin="15" Spacing="10" Padding="5" >
                         <ImageButton Source="icon_home" 
-                                     WidthRequest="100" 
+                                     WidthRequest="80" 
                                      BackgroundColor="Transparent"
                                      HorizontalOptions="StartAndExpand"
                                      Command="{Binding BindingContext.CommandPlantPage, Source={x:Reference collection}}"
@@ -81,11 +81,12 @@
                                    TextColor="Black"
                                    HeightRequest="30"
                                    WidthRequest="250"/>
-                            
+
+                            <Button CornerRadius="100" BorderColor="White" BorderWidth="1" BackgroundColor="Green" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
                             
                         </StackLayout>
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding CommandPlantPage}"></TapGestureRecognizer>
+                            <TapGestureRecognizer Command="{Binding CommandPlantPage}"/>
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
 
