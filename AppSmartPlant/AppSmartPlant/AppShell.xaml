@@ -34,8 +34,7 @@
         <ShellContent Title="Inicio" Icon="icon_home.png" Route="AboutPage" ContentTemplate="{DataTemplate local:HomePage}" />
         <ShellContent Title="Agregar" Icon="icon_add.png" ContentTemplate="{DataTemplate local:AddPage}" />
         <ShellContent Title="Perfil" Icon="icon_user.png" ContentTemplate="{DataTemplate local:UserPage}" />
-
-        <ShellContent Title="Notificaciones" Icon="icon_notificacion" ContentTemplate="{DataTemplate local:AddPage}" />
+        <ShellContent Title="Notificaciones" Icon="icon_notificacion" ContentTemplate="{DataTemplate local:NotificationsPage}" />
     </TabBar>
 
     <!--

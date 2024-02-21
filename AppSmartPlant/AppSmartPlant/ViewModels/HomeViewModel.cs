@@ -13,12 +13,6 @@ namespace AppSmartPlant.ViewModels
 {
 	public class HomeViewModel : BaseViewModel
 	{
-		public HomeViewModel()
-		{
-			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
-		}
-
-
 		#region VARIABLES
 		ObservableCollection<Mplanta> _listaPlanta;
 		#endregion
@@ -47,21 +41,30 @@ namespace AppSmartPlant.ViewModels
 			var funcion = new Dplant();
 			ListaPlanta = await funcion.MostrarPlantas();
 		}
+
+		//lleva a la vista de detalles de la planta
 		public async Task PlantD(Mplanta parametros)
 		{
-
 			await Navigation.PushAsync(new PlantPage(parametros));
 		}
+
+		//vista de editar de la planta
 		public async Task Editar(Mplanta parametros)
 		{
-
 			await Navigation.PushAsync(new EditPlantPage(parametros));
+		}
+
+		//eliminar planta
+		public async Task Eliminar(Mplanta parametros)
+		{
+			await DisplayAlert($"Eliminar planta {parametros.NamePlant}", $"¿Seguro que quiere eliminar la planta {parametros.NamePlant}?","Aceptar","Cancelar");
 		}
 
 		#endregion
 		#region COMANDOS
 		public ICommand CommandPlantPage => new Command<Mplanta>(async (p) => await PlantD(p));
 		public ICommand CommandEditPage => new Command<Mplanta>(async (p) => await Editar(p));
+		public ICommand CommandEliminar => new Command<Mplanta>(async (p) => await Eliminar(p));
 
 
 

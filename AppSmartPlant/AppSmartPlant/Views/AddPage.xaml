@@ -5,9 +5,6 @@
              x:Class="AppSmartPlant.Views.AddPage"
              Title="Agregar">
 
-    <ContentPage.BindingContext>
-        <vm:AddViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>

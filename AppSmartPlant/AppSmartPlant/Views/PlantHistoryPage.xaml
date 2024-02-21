@@ -1,19 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="AppSmartPlant.Views.PlantHistoryPage"
              Title="Historial">
 
-    <StackLayout Margin="15">
-        <Grid>
-            <DatePicker Grid.Column="0" IsEnabled="False" 
-                        TextColor="Black"/>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                
+
+                <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Line Chart"/>
+                <microcharts:ChartView x:Name="linesChart" HeightRequest="200" WidthRequest="100"/>
+
+            </StackLayout>
             
-            <TimePicker Grid.Column="1" 
-                        IsEnabled="False"/>
-        </Grid>
+        </ScrollView>
+       
+
+
         
-        <Entry Text="Humedad" IsEnabled="False"/>
-        <Entry Text="Electrivalcula" IsEnabled="False"/>
+        <ScrollView>
+            <StackLayout Margin="15">
+                <Grid>
+                    <DatePicker Grid.Column="0" IsEnabled="False" 
+                        TextColor="Black"/>
+
+                    <TimePicker Grid.Column="1" 
+                        IsEnabled="False"/>
+                </Grid>
+
+                <Entry Text="Humedad" IsEnabled="False"/>
+                <Entry Text="Electrivalcula" IsEnabled="False"/>
+            </StackLayout>
+        </ScrollView>
+        <!--
+        <CollectionView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 HorizontalItemSpacing="10"
+                                 Span="1"
+                                 VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ScrollView>
+                        <StackLayout Margin="15">
+                            <Grid>
+                                <DatePicker Grid.Column="0" IsEnabled="False" 
+                        TextColor="Black"/>
+
+                                <TimePicker Grid.Column="1" 
+                        IsEnabled="False"/>
+                            </Grid>
+
+                            <Entry Text="Humedad" IsEnabled="False"/>
+                            <Entry Text="Electrivalcula" IsEnabled="False"/>
+                        </StackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        -->
     </StackLayout>
+
 </ContentPage>

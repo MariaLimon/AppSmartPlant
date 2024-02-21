@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSmartPlant.Views.HomePage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
-             Title="Home">
+             Title="Inicio">
 
 
     <ContentPage.Resources>
@@ -47,7 +47,7 @@
                         <SwipeItems>
                             <SwipeItem Text="Eliminar" 
                                        BackgroundColor="Red" 
-                                       Command="{Binding BindingContext.EliminarCommand, Source={x:Reference collection}}" 
+                                       Command="{Binding BindingContext.CommandEliminar, Source={x:Reference collection}}" 
                                        CommandParameter="{Binding .}" />
                             
                         </SwipeItems>

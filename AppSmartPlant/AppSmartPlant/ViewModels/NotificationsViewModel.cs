@@ -1,22 +1,20 @@
 ﻿using MvvmGuia.VistaModelo;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
-using AppSmartPlant.Models;
-
 
 namespace AppSmartPlant.ViewModels
 {
-	public class AddViewModel : BaseViewModel
+	public class NotificationsViewModel : BaseViewModel
 	{
 		#region VARIABLES
 		string _Texto;
 		#endregion
 		#region CONSTRUCTOR
-		public AddViewModel(INavigation navigation)
+		public NotificationsViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
 		}
@@ -27,7 +25,6 @@ namespace AppSmartPlant.ViewModels
 			get { return _Texto; }
 			set { SetValue(ref _Texto, value); }
 		}
-		
 		#endregion
 		#region PROCESOS
 		public async Task ProcesoAsyncrono()

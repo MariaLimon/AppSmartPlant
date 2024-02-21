@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Padding="50">
-        <ImageButton Source="icon_editar" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand" />
+        <!--<ImageButton Source="icon_editar" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand" />-->
         <Image Source="img_usuario" WidthRequest="180" Margin="10,30" />
 
         <Label Text="Nombre de usuario" FontSize="Large"/>
