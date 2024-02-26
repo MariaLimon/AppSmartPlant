@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSmartPlant.Views.HomePage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
+             xmlns:disparador="clr-namespace:AppSmartPlant.Triggers"
+             
              Title="Inicio">
 
 
@@ -15,16 +17,14 @@
     <CollectionView ItemsSource="{Binding ListaPlanta}"
                     Margin="0,0,0,0"
                     x:Name="collection"
-                    BackgroundColor="Gray"
                     SelectionMode="Single">
         
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical"
-                                 HorizontalItemSpacing="10"
-                                 Span="1"
-                                 VerticalItemSpacing="10"
-                                 />
+                             HorizontalItemSpacing="10"
+                             Span="1"
+                             VerticalItemSpacing="10"/>
 
 
         </CollectionView.ItemsLayout>
@@ -33,7 +33,7 @@
         <CollectionView.ItemTemplate>
            
             <DataTemplate>
-                <SwipeView Padding="5">
+                <SwipeView>
                     <SwipeView.LeftItems>
                         <SwipeItems>
                             <SwipeItem Text="Editar" 
@@ -82,8 +82,28 @@
                                    HeightRequest="30"
                                    WidthRequest="250"/>
 
-                            <Button CornerRadius="100" BorderColor="White" BorderWidth="1" BackgroundColor="Green" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" />
-                            
+                            <Button CornerRadius="100" 
+                                    BorderColor="White" 
+                                    BorderWidth="1" 
+                                    BackgroundColor="Red" 
+                                    WidthRequest="20" 
+                                    HeightRequest="20"
+                                    HorizontalOptions="End">
+                                <Button.Triggers>
+                                    <MultiTrigger TargetType="Button">
+                                        <MultiTrigger.Conditions>
+                                            <BindingCondition Binding="{Binding ActivadorB}" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <MultiTrigger.EnterActions>
+                                            <disparador:TaddPlant Activacion="True"/>
+                                        </MultiTrigger.EnterActions>
+                                        <MultiTrigger.ExitActions>
+                                            <disparador:TaddPlant Activacion="True"/>
+                                        </MultiTrigger.ExitActions>
+                                    </MultiTrigger>
+                                </Button.Triggers>
+                            </Button>
+
                         </StackLayout>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding CommandPlantPage}"/>

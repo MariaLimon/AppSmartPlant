@@ -10,7 +10,7 @@
             <StackLayout>
                 
 
-                <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Line Chart"/>
+                <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Humedad durante el día"/>
                 <microcharts:ChartView x:Name="linesChart" HeightRequest="200" WidthRequest="100"/>
 
             </StackLayout>

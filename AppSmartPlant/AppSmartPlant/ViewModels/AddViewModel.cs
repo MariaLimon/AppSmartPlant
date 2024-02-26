@@ -14,6 +14,10 @@ namespace AppSmartPlant.ViewModels
 	{
 		#region VARIABLES
 		string _Texto;
+		bool _activadorAnimacionImg;
+		string _tipoP;
+		string _nombreP;
+		
 		#endregion
 		#region CONSTRUCTOR
 		public AddViewModel(INavigation navigation)
@@ -27,21 +31,39 @@ namespace AppSmartPlant.ViewModels
 			get { return _Texto; }
 			set { SetValue(ref _Texto, value); }
 		}
-		
+		public bool ActivadorAnimacionImgAG
+		{
+			get { return _activadorAnimacionImg; }
+			set { SetValue(ref _activadorAnimacionImg, value); }
+		}
+		public string TipoP
+		{
+			get { return _tipoP; }
+			set { SetValue(ref _tipoP, value); }
+		}
+		public string NombreP
+		{
+			get { return _nombreP; }
+			set { SetValue(ref _nombreP, value); }
+		}
 		#endregion
 		#region PROCESOS
-		public async Task ProcesoAsyncrono()
+		public async Task AddPlant()
 		{
-			await DisplayAlert("Titulo", "Mensaje", "Ok");
+			ActivadorAnimacionImgAG = false;
+			if (string.IsNullOrEmpty(NombreP)|| string.IsNullOrEmpty(TipoP))
+			{
+				await DisplayAlert("Datos", "Por favor llena los datos solicitados", "Aceptar");
+			}
+			else
+			{
+				ActivadorAnimacionImgAG = true;
+			}
 		}
-		public void ProcesoSimple()
-		{
-
-		}
+		
 		#endregion
 		#region COMANDOS
-		public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-		public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+		public ICommand AddCommand => new Command(async () => await AddPlant());
 		#endregion
 	}
 }

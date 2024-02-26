@@ -14,8 +14,7 @@
                         IsEnabled="False"/>
                 </Grid>
                 <Entry Text="Nombre planta" IsEnabled="False"/>
-                <Entry Text="Humedad" IsEnabled="False"/>
-                <Entry Text="Electrivalcula" IsEnabled="False"/>
+                <Entry Text="Mensaje" IsEnabled="False"/>
             </StackLayout>
         </ScrollView>
         

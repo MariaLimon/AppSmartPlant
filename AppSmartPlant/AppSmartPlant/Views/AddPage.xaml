@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
              x:Class="AppSmartPlant.Views.AddPage"
+             xmlns:disparador="clr-namespace:AppSmartPlant.Triggers"
              Title="Agregar">
 
 
@@ -14,13 +15,30 @@
     
     <StackLayout Padding="50">
         <Image Source="img_arbol"/>
-        <Label Text="Nombre" FontSize="Large"/>
-        <Entry Placeholder="Nombre de la planta" Keyboard="Text"/>
+        <!--<Label Text="Nombre" FontSize="Large"/>-->
+        <Entry Placeholder="Nombre de la planta" Keyboard="Text" Visual="Material" PlaceholderColor="Green" Margin="10" Text="{Binding NombreP}" />
 
-        <Label Text="Tipo" FontSize="Large"/>
-        <Entry Placeholder="Tipo de planta" Keyboard="Text"/>
+        <!--<Label Text="Tipo" FontSize="Large"/>-->
+        <Entry Placeholder="Tipo de planta" Keyboard="Text" Visual="Material" PlaceholderColor="Green" Margin="10" Text="{Binding TipoP}"/>
 
-        <Button Text="Agregar" CornerRadius="10" Margin="10,20"/>
+        <Button Text="Agregar" CornerRadius="10" Margin="10,20" Command="{Binding AddCommand}" Visual="Material"/>
+
+        <Label Text="Planta agregada correctamente" TextColor="White" >
+            <Label.Triggers>
+                <MultiTrigger TargetType="Label">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding ActivadorAnimacionImgAG}" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.EnterActions>
+                        <disparador:TaddPlant Activacion="True"/>
+                    </MultiTrigger.EnterActions>
+                    <MultiTrigger.ExitActions>
+                        <disparador:TaddPlant Activacion="True"/>
+                    </MultiTrigger.ExitActions>
+                </MultiTrigger>
+            </Label.Triggers>
+        </Label>
+
     </StackLayout>
 
 

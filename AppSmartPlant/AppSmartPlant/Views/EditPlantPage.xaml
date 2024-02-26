@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppSmartPlant.Views.EditPlantPage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
+             xmlns:disparador="clr-namespace:AppSmartPlant.Triggers"
              Title="Editar planta">
 
     <ContentPage.Resources>
@@ -11,15 +12,31 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <StackLayout Padding="50">
+    <StackLayout Padding="50" Visual="Material">
         <Image Source="img_arbol"/>
         <Label Text="Nombre" FontSize="Large"/>
-        <Entry Placeholder="Nombre de la planta" Keyboard="Text" Text="{Binding parametrosRecibe.NamePlant}"/>
+        <Entry Placeholder="Nombre de la planta" Keyboard="Text" Text="{Binding parametrosRecibe.NamePlant}"  PlaceholderColor="Green"/>
 
         <Label Text="Tipo" FontSize="Large"/>
-        <Entry Placeholder="Tipo de planta" Keyboard="Text" Text="{Binding parametrosRecibe.TypePlant}"/>
+        <Entry Placeholder="Tipo de planta" Keyboard="Text" Text="{Binding parametrosRecibe.TypePlant}"  PlaceholderColor="Green"/>
 
-        <Button Text="Guardar" CornerRadius="10" Margin="10,20"/>
+        <Button Text="Guardar" CornerRadius="10" Margin="10,20" Command="{Binding EditCommand}"/>
+        
+        <Label Text="Planta editada correctamente" TextColor="White" >
+            <Label.Triggers>
+                <MultiTrigger TargetType="Label">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding ActivadorAnimacionImgED}" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.EnterActions>
+                        <disparador:TaddPlant Activacion="True"/>
+                    </MultiTrigger.EnterActions>
+                    <MultiTrigger.ExitActions>
+                        <disparador:TaddPlant Activacion="True"/>
+                    </MultiTrigger.ExitActions>
+                </MultiTrigger>
+            </Label.Triggers>
+        </Label>
     </StackLayout>
 
 

@@ -15,6 +15,7 @@ namespace AppSmartPlant.ViewModels
 	{
 		#region VARIABLES
 		ObservableCollection<Mplanta> _listaPlanta;
+		bool _ActivadorB;
 		#endregion
 		#region CONSTRUCTOR
 		public HomeViewModel(INavigation navigation)
@@ -33,6 +34,11 @@ namespace AppSmartPlant.ViewModels
 				OnpropertyChanged();
 			}
 
+		}
+		public bool ActivadorB
+		{
+			get { return _ActivadorB; }
+			set { SetValue(ref _ActivadorB, value); }
 		}
 		#endregion
 		#region PROCESOS
@@ -70,6 +76,5 @@ namespace AppSmartPlant.ViewModels
 
 		#endregion
 
-		public ICommand OpenWebCommand { get; }
 	}
 }

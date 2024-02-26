@@ -1,4 +1,5 @@
-﻿using AppSmartPlant.Views;
+﻿using AppSmartPlant.Models;
+using AppSmartPlant.Views;
 using MvvmGuia.VistaModelo;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace AppSmartPlant.ViewModels
 	public class SinginViewModel : BaseViewModel
 	{
 		#region VARIABLES
-
+		string _email;
+		string _password;
 		#endregion
 		#region CONSTRUCTOR
 		public SinginViewModel(INavigation navigation)
@@ -21,10 +23,19 @@ namespace AppSmartPlant.ViewModels
 		}
 		#endregion
 		#region OBJETOS
-		
+		public string Email
+		{
+			get { return _email; }
+			set { SetValue(ref _email, value); }
+		}
+		public string Password
+		{
+			get { return _password; }
+			set { SetValue(ref _password, value); }
+		}
 		#endregion
 		#region PROCESOS
-		public async Task SingIn()
+		public async Task SingIn(Musuario user)
 		{
 			Application.Current.MainPage = new AppShell();
 			await Navigation.PushAsync(new HomePage());
@@ -39,7 +50,7 @@ namespace AppSmartPlant.ViewModels
 
 		#endregion
 		#region COMANDOS
-		public ICommand CommandHomePage => new Command(async () => await SingIn());
+		public ICommand CommandHomePage => new Command<Musuario>(async (p) => await SingIn(p));
 		public ICommand CommandSingUp => new Command(async () => await SingUp());
 
 		#endregion
