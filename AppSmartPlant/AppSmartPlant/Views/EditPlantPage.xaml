@@ -29,10 +29,10 @@
                         <BindingCondition Binding="{Binding ActivadorAnimacionImgED}" Value="True"/>
                     </MultiTrigger.Conditions>
                     <MultiTrigger.EnterActions>
-                        <disparador:TaddPlant Activacion="True"/>
+                        <disparador:TeditPlant Activacion="True"/>
                     </MultiTrigger.EnterActions>
                     <MultiTrigger.ExitActions>
-                        <disparador:TaddPlant Activacion="True"/>
+                        <disparador:TeditPlant Activacion="True"/>
                     </MultiTrigger.ExitActions>
                 </MultiTrigger>
             </Label.Triggers>

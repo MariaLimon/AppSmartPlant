@@ -92,7 +92,7 @@
                                 <Button.Triggers>
                                     <MultiTrigger TargetType="Button">
                                         <MultiTrigger.Conditions>
-                                            <BindingCondition Binding="{Binding ActivadorB}" Value="True"/>
+                                            <BindingCondition Binding="{Binding ValorSwitch}" Value="True"/>
                                         </MultiTrigger.Conditions>
                                         <MultiTrigger.EnterActions>
                                             <disparador:TaddPlant Activacion="True"/>

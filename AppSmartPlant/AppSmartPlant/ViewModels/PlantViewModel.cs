@@ -14,6 +14,7 @@ namespace AppSmartPlant.ViewModels
 	{
 		#region VARIABLES
 		string _Texto;
+		bool _ValorSwitch;
 		public Mplanta parametrosRecibe { get; set; }
 		#endregion
 		#region CONSTRUCTOR
@@ -29,7 +30,12 @@ namespace AppSmartPlant.ViewModels
 			get { return _Texto; }
 			set { SetValue(ref _Texto, value); }
 		}
-		
+		public bool ValorSwitch
+		{
+			get { return _ValorSwitch; }
+			set { SetValue(ref _ValorSwitch, value); }
+		}
+
 		#endregion
 		#region PROCESOS
 		public async Task Editar(Mplanta parametros)
@@ -41,6 +47,7 @@ namespace AppSmartPlant.ViewModels
 		{
 			await Navigation.PushAsync(new PlantHistoryPage());
 		}
+
 		#endregion
 		#region COMANDOS
 		public ICommand CommandEditPage => new Command<Mplanta>(async (p) => await Editar(p));

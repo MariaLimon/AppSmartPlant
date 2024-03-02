@@ -20,7 +20,15 @@
 
                 <Button Text="Sign in" CornerRadius="10" Margin="0,50,0,0" Command="{Binding CommandHomePage}" Visual="Material"/>
 
-                <Button BackgroundColor="Transparent" Text="Sing up" TextColor="Black" Command="{Binding CommandSingUp}"  Margin="0,10" HeightRequest="40" WidthRequest="70" BorderWidth="2"  HorizontalOptions="EndAndExpand"></Button>
+                <Button BackgroundColor="Transparent" 
+                        Text="Sing up" 
+                        TextColor="Black" 
+                        Command="{Binding CommandSingUp}"  
+                        Margin="0,10" 
+                        HeightRequest="40" 
+                        WidthRequest="70" 
+                        BorderWidth="2"  
+                        HorizontalOptions="EndAndExpand"/>
 
 
             </StackLayout>
