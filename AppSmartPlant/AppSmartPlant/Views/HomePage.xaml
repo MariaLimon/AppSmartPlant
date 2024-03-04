@@ -81,12 +81,25 @@
                                    HeightRequest="30"
                                    WidthRequest="250"/>
 
-                            <Button CornerRadius="100" 
+                            <Button CornerRadius="100"                                     
                                     BorderColor="White" 
+                                    BackgroundColor="Aqua"
                                     BorderWidth="1" 
                                     WidthRequest="20" 
                                     HeightRequest="20"
                                     HorizontalOptions="End">
+                                <Button.Triggers>
+                                    <DataTrigger TargetType="Button"
+                                     Binding   ="{Binding Electrovalvula}" 
+                                      Value     ="true">
+                                     <Setter Property="BackgroundColor"  Value="green" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Button"
+                                         Binding   ="{Binding Electrovalvula}" 
+                                             Value     ="false">      
+                                        <Setter Property="BackgroundColor"  Value="red" />
+                                    </DataTrigger>
+                                </Button.Triggers>
                                
                             </Button>
 

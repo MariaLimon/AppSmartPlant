@@ -35,7 +35,31 @@ namespace AppSmartPlant.Datos
 			// .Where(a => a.Nombre !="-"));
 			return data;
 		}
-		/*
+
+        public async Task<bool> ActualizarPlant(Mplanta parametros)
+        {
+            var notaAEditar = (await Cconexion.firebase
+                .Child("plantSmall")
+                .OnceAsync<Mplanta>()).Where(p => p.Object.NamePlant == parametros.NamePlant).FirstOrDefault();
+
+            if (notaAEditar != null)
+            {
+                await Cconexion.firebase
+                    .Child("plantSmall")
+                    .Child(notaAEditar.Key)
+                    .PutAsync(new Mplanta()
+                    {
+                        NamePlant = parametros.NamePlant,
+                        TypePlant = parametros.TypePlant,
+						Electrovalvula = parametros.Electrovalvula
+                    });
+                return true;
+            }
+            return false;
+            
+        }
+
+        /*
 		public async Task EliminarNota(string notaId)
 		{
 			try
@@ -79,5 +103,5 @@ namespace AppSmartPlant.Datos
 			return false;
 		}
 		*/
-	}
+    }
 }

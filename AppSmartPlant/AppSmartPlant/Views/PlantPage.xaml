@@ -30,9 +30,9 @@
 
             <Grid >
                 <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>
-                <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding ValorSwitch}" >
+                <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding parametrosRecibe.Electrovalvula}" >
                     <Switch.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CommandSwitch}"/>
+                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="Image1"/>
                     </Switch.GestureRecognizers>
                 </Switch>
 
