@@ -6,5 +6,6 @@ namespace AppSmartPlant.Models
 	{
 		public string NamePlant { get; set; }
 		public string TypePlant { get; set; }
-	}
+        public bool Electrovalvula { get; set; }
+    }
 }

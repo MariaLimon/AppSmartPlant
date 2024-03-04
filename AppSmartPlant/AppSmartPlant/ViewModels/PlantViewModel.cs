@@ -7,20 +7,24 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using AppSmartPlant.Models;
 using AppSmartPlant.Views;
+using static Xamarin.Essentials.Permissions;
+using System.Diagnostics;
 
 namespace AppSmartPlant.ViewModels
 {
 	public class PlantViewModel : BaseViewModel
 	{
-		#region VARIABLES
-		public Mplanta parametrosRecibe { get; set; }
+        #region VARIABLES
+        ICommand tapCommand;
+        public Mplanta parametrosRecibe { get; set; }
 		#endregion
 		#region CONSTRUCTOR
 		public PlantViewModel(INavigation navigation, Mplanta parametrosTrae)
 		{
 			Navigation = navigation;
 			parametrosRecibe = parametrosTrae;
-		}
+            tapCommand = new Command(OnTapped);
+        }
 		#endregion
 		#region OBJETOS
 		
@@ -43,6 +47,16 @@ namespace AppSmartPlant.ViewModels
 		public ICommand CommandHistoryPage => new Command(async () => await History());
 
 
-		#endregion
-	}
+        public ICommand TapCommand
+        {
+            get { return tapCommand; }
+        }
+        void OnTapped(object s)
+        {
+          
+            Debug.WriteLine("parameter: " + s);
+        }
+
+        #endregion
+    }
 }
