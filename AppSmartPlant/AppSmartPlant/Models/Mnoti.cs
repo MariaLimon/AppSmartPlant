@@ -4,12 +4,12 @@ using System.Text;
 
 namespace AppSmartPlant.Models
 {
-	public class Mhistorial
+	public class Mnoti
 	{
-		public string Time { get; set; }
 		public string Date { get; set; }
-		public double Humedad { get; set; }
-		public bool Electrovalvula { get; set; }
+		public string NamePlant { get; set; }
+		public string Message { get; set; }
+		public string Time { get;set; }
 
 	}
 }

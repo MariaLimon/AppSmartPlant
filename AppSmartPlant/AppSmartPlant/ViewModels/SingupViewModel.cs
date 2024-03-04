@@ -96,7 +96,7 @@ namespace AppSmartPlant.ViewModels
 				Preferences.Set("Usuario", NombreUsuario);
 				Preferences.Set("Contraseña", Contraseña);
 
-				await Application.Current.MainPage.DisplayAlert("Felicidades", "Registro Exitoso", "ok");
+				await Application.Current.MainPage.DisplayAlert("Registro", "Registro exitoso", "Aceptar");
 				await Navigation.PushAsync(new SinginPage());
 			}
 		}

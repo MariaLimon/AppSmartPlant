@@ -6,20 +6,11 @@
              Title="Historial">
 
     <StackLayout>
-        <ScrollView>
-            <StackLayout>
-                
-
-                <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Humedad durante el día"/>
-                <microcharts:ChartView x:Name="linesChart" HeightRequest="200" WidthRequest="100"/>
-
-            </StackLayout>
+        <StackLayout>
+            <Label FontSize="25" HorizontalOptions="CenterAndExpand" Text="Humedad durante el día"/>
+            <microcharts:ChartView x:Name="linesChart" HeightRequest="200" WidthRequest="100"/>
+        </StackLayout>
             
-        </ScrollView>
-       
-
-
-        
         <ScrollView>
             <StackLayout Margin="15">
                 <Grid>
@@ -34,8 +25,11 @@
                 <Entry Text="Electrivalcula" IsEnabled="False"/>
             </StackLayout>
         </ScrollView>
-        <!--
-        <CollectionView>
+
+        <CollectionView ItemsSource="{Binding ListaHistorial}"
+                        Margin="0,0,0,0"
+                        x:Name="collection">
+
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
                                  HorizontalItemSpacing="10"
@@ -48,21 +42,18 @@
                     <ScrollView>
                         <StackLayout Margin="15">
                             <Grid>
-                                <DatePicker Grid.Column="0" IsEnabled="False" 
-                        TextColor="Black"/>
-
-                                <TimePicker Grid.Column="1" 
-                        IsEnabled="False"/>
+                                <DatePicker Date="{Binding Date}" Grid.Column="0" IsEnabled="False" />
+                                <TimePicker Time="{Binding Time}" Grid.Column="1" IsEnabled="False"/>
                             </Grid>
 
-                            <Entry Text="Humedad" IsEnabled="False"/>
-                            <Entry Text="Electrivalcula" IsEnabled="False"/>
+                            <Entry Text="{Binding Humedad}" IsEnabled="False"/>
+                            <Entry Text="{Binding Electrovalvula}" IsEnabled="False" />
                         </StackLayout>
                     </ScrollView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        -->
+        
     </StackLayout>
 
 </ContentPage>

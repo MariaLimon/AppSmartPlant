@@ -1,6 +1,9 @@
-﻿using MvvmGuia.VistaModelo;
+﻿using AppSmartPlant.Datos;
+using AppSmartPlant.Models;
+using MvvmGuia.VistaModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,34 +14,37 @@ namespace AppSmartPlant.ViewModels
 	public class NotificationsViewModel : BaseViewModel
 	{
 		#region VARIABLES
-		string _Texto;
+		ObservableCollection<Mnoti> _listaNotis;
+
 		#endregion
 		#region CONSTRUCTOR
 		public NotificationsViewModel(INavigation navigation)
 		{
 			Navigation = navigation;
+			MostrarNotis();
 		}
 		#endregion
 		#region OBJETOS
-		public string Texto
+		public ObservableCollection<Mnoti> ListaNotis
 		{
-			get { return _Texto; }
-			set { SetValue(ref _Texto, value); }
+			get { return _listaNotis; }
+			set
+			{
+				SetValue(ref _listaNotis, value);
+				OnpropertyChanged();
+			}
 		}
+
 		#endregion
 		#region PROCESOS
-		public async Task ProcesoAsyncrono()
+		public async Task MostrarNotis()
 		{
-			await DisplayAlert("Titulo", "Mensaje", "Ok");
-		}
-		public void ProcesoSimple()
-		{
-
+			var funcion = new Dnoti();
+			ListaNotis = await funcion.MostrarNotis();
 		}
 		#endregion
 		#region COMANDOS
-		public ICommand ProcesoAsyncommand => new Command(async () => await ProcesoAsyncrono());
-		public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+
 		#endregion
 	}
 }

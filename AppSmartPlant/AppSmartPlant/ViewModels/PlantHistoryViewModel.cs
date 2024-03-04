@@ -56,7 +56,7 @@ namespace AppSmartPlant.ViewModels
 			get { return _Electrovalvula; }
 			set { SetValue(ref _Electrovalvula, value); }
 		}
-		public ObservableCollection<Mhistorial> listaHistorial
+		public ObservableCollection<Mhistorial> ListaHistorial
 		{
 			get { return _listaHistorial; }
 			set
@@ -70,8 +70,8 @@ namespace AppSmartPlant.ViewModels
 		#region PROCESOS
 		public async Task MostrarHistorial()
 		{
-			
-			
+			var funcion = new Dhistorial();
+			ListaHistorial = await funcion.MostrarHistorial();
 		}
 		#endregion
 		#region COMANDOS
