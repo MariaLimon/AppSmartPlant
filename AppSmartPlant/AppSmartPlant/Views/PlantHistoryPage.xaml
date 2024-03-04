@@ -11,20 +11,7 @@
             <microcharts:ChartView x:Name="linesChart" HeightRequest="200" WidthRequest="100"/>
         </StackLayout>
             
-        <ScrollView>
-            <StackLayout Margin="15">
-                <Grid>
-                    <DatePicker Grid.Column="0" IsEnabled="False" 
-                        TextColor="Black"/>
-
-                    <TimePicker Grid.Column="1" 
-                        IsEnabled="False"/>
-                </Grid>
-
-                <Entry Text="Humedad" IsEnabled="False"/>
-                <Entry Text="Electrivalcula" IsEnabled="False"/>
-            </StackLayout>
-        </ScrollView>
+        
 
         <CollectionView ItemsSource="{Binding ListaHistorial}"
                         Margin="0,0,0,0"
@@ -45,8 +32,9 @@
                                 <DatePicker Date="{Binding Date}" Grid.Column="0" IsEnabled="False" />
                                 <TimePicker Time="{Binding Time}" Grid.Column="1" IsEnabled="False"/>
                             </Grid>
-
+                            <Label Text="Humedad"/>
                             <Entry Text="{Binding Humedad}" IsEnabled="False"/>
+                            <Label Text="Electrovalvula"/>
                             <Entry Text="{Binding Electrovalvula}" IsEnabled="False" />
                         </StackLayout>
                     </ScrollView>
