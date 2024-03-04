@@ -1,5 +1,4 @@
-﻿using AppSmartPlant.Services;
-using AppSmartPlant.Views;
+﻿using AppSmartPlant.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,8 +12,7 @@ namespace AppSmartPlant
 		{
 			InitializeComponent();
 
-			DependencyService.Register<MockDataStore>();
-			MainPage = new NavigationPage( new SinginPage());
+			MainPage = new NavigationPage(new SinginPage());
 		}
 
 		protected override void OnStart()

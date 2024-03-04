@@ -4,7 +4,6 @@
              x:Class="AppSmartPlant.Views.HomePage"
              xmlns:vm="clr-namespace:AppSmartPlant.ViewModels"
              xmlns:disparador="clr-namespace:AppSmartPlant.Triggers"
-             
              Title="Inicio">
 
 
@@ -85,23 +84,10 @@
                             <Button CornerRadius="100" 
                                     BorderColor="White" 
                                     BorderWidth="1" 
-                                    BackgroundColor="Red" 
                                     WidthRequest="20" 
                                     HeightRequest="20"
                                     HorizontalOptions="End">
-                                <Button.Triggers>
-                                    <MultiTrigger TargetType="Button">
-                                        <MultiTrigger.Conditions>
-                                            <BindingCondition Binding="{Binding ValorSwitch}" Value="True"/>
-                                        </MultiTrigger.Conditions>
-                                        <MultiTrigger.EnterActions>
-                                            <disparador:TaddPlant Activacion="True"/>
-                                        </MultiTrigger.EnterActions>
-                                        <MultiTrigger.ExitActions>
-                                            <disparador:TaddPlant Activacion="True"/>
-                                        </MultiTrigger.ExitActions>
-                                    </MultiTrigger>
-                                </Button.Triggers>
+                               
                             </Button>
 
                         </StackLayout>

@@ -18,7 +18,7 @@
 
                 <Entry Placeholder="Contraseña" IsPassword="True" Text="{Binding Password}"  Margin="10" PlaceholderColor="Green" Visual="Material"/>
 
-                <Button Text="Sign in" CornerRadius="10" Margin="0,50,0,0" Command="{Binding CommandHomePage}" Visual="Material"/>
+                <Button Text="Sign in" CornerRadius="10" Margin="0,50,0,0" Command="{Binding SingIncommand}" Visual="Material" IsEnabled="{Binding CamposRellenados}"/>
 
                 <Button BackgroundColor="Transparent" 
                         Text="Sing up" 

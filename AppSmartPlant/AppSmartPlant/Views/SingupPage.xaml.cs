@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSmartPlant.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace AppSmartPlant.Views
 		public SingupPage ()
 		{
 			InitializeComponent ();
+			BindingContext = new SingupViewModel(Navigation);
 		}
 	}
 }
