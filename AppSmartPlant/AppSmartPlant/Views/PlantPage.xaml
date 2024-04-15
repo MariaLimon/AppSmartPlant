@@ -25,8 +25,8 @@
             <Label Text="Humedad" FontSize="Large"/>
             <Entry Text="" IsEnabled="False" FontAttributes="Bold" FontSize="25"/>
 
-            <Label Text="Tamaño" FontSize="Large"/>
-            <Entry Text="" IsEnabled="False" FontAttributes="Bold" FontSize="25"/>
+            <!--<Label Text="Tamaño" FontSize="Large"/>
+            <Entry Text="" IsEnabled="False" FontAttributes="Bold" FontSize="25"/>-->
 
             <Grid >
                 <Label Grid.Row="0" Grid.Column="0" Text="Electroválvula" FontSize="Large"/>

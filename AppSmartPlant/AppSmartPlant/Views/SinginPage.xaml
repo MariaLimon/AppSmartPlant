@@ -12,7 +12,7 @@
             <StackLayout Margin="0,5" >
                 <!--<Label Text="Email" FontSize="Large"/>-->
 
-                <Entry Placeholder="Correo electronico" Keyboard="Email" Text="{Binding Email}"  Margin="10" PlaceholderColor="Green" Visual="Material"/>
+                <Entry Placeholder="Nombre de usuario" Text="{Binding Email}"  Margin="10" PlaceholderColor="Green" Visual="Material"/>
 
                 <!--<Label Text="Password" FontSize="Large"/> -->
 
