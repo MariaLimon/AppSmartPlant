@@ -6,6 +6,10 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using AppSmartPlant.Models;
+using System.Net.Http;
+using System.Net;
+using System.Text;
+using Newtonsoft.Json;
 
 
 namespace AppSmartPlant.ViewModels
@@ -51,16 +55,40 @@ namespace AppSmartPlant.ViewModels
 		public async Task AddPlant()
 		{
 			ActivadorAnimacionImgAG = false;
-			if (string.IsNullOrEmpty(NombreP)|| string.IsNullOrEmpty(TipoP))
+			if (string.IsNullOrEmpty(NombreP) || string.IsNullOrEmpty(TipoP))
 			{
 				await DisplayAlert("Datos", "Por favor llena los datos solicitados", "Aceptar");
 			}
 			else
 			{
-				ActivadorAnimacionImgAG = true;
+				Mplanta mplanta = new Mplanta
+				{
+					namePlant = NombreP,
+					typePlant = TipoP,
+					usersId = "65d7c2311939f248d7a27298"
+				};
+				Uri RequestUri = new
+					Uri("https://01lvzzm2-5015.usw3.devtunnels.ms/api/Plant/Crear");
+				var client = new HttpClient();
+				var json = JsonConvert.SerializeObject(mplanta);
+				var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
+				var response = await client.PostAsync(RequestUri, contentJson);
+
+				if (response.StatusCode == HttpStatusCode.Created)
+				{
+					//await DisplayAlert("Mensaje", "Resgistrado", "ok");
+					ActivadorAnimacionImgAG = true;
+					NombreP = "";
+					TipoP = "";
+				}
+				else
+				{
+					await DisplayAlert("Mensaje", "No resgistrado", "ok");
+				}
 			}
+			
 		}
-		
+
 		#endregion
 		#region COMANDOS
 		public ICommand AddCommand => new Command(async () => await AddPlant());

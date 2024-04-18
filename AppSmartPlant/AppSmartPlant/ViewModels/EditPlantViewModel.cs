@@ -54,7 +54,7 @@ namespace AppSmartPlant.ViewModels
 		public async Task EditPlant()
 		{
 			ActivadorAnimacionImgED = false;
-			if (string.IsNullOrEmpty(parametrosRecibe.NamePlant) || string.IsNullOrEmpty(parametrosRecibe.TypePlant))
+			if (string.IsNullOrEmpty(parametrosRecibe.namePlant) || string.IsNullOrEmpty(parametrosRecibe.typePlant))
 			{
 				await DisplayAlert("Datos", "Por favor llena los datos solicitados", "Aceptar");
 			}

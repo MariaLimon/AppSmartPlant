@@ -8,6 +8,10 @@ using Xamarin.Forms;
 using AppSmartPlant.Models;
 using AppSmartPlant.Datos;
 using AppSmartPlant.Views;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+using System.Collections.Generic;
 
 namespace AppSmartPlant.ViewModels
 {
@@ -42,10 +46,47 @@ namespace AppSmartPlant.ViewModels
 		}
 		#endregion
 		#region PROCESOS
-		public async Task MostrarPlantas()
+		public async Task<ObservableCollection<Mplanta>> MostrarPlantas()
 		{
-			var funcion = new Dplant();
-			ListaPlanta = await funcion.MostrarPlantas();
+			//Uri requestUri = new Uri("https://01lvzzm2-5015.usw3.devtunnels.ms/api/Plant/Lista");
+			//var client = new HttpClient();
+
+			//try
+			//{
+			//	var response = await client.GetAsync(requestUri);
+
+			//	if (response.IsSuccessStatusCode)
+			//	{
+			//		var json = await response.Content.ReadAsStringAsync();
+			//		var plantas = JsonConvert.DeserializeObject<List<Mplanta>>(json);
+			//		return plantas;
+			//	}
+			//	else
+			//	{
+			//		// Manejar el caso de error (por ejemplo, mostrar un mensaje de error)
+			//		return null;
+			//	}
+			//}
+			//catch (Exception ex)
+			//{
+			//	// Manejar excepciones (por ejemplo, registro de errores)
+			//	return null;
+			//}
+			Uri RequestUri = new Uri("https://01lvzzm2-5015.usw3.devtunnels.ms/api/Plant/Lista");
+			var client = new HttpClient();
+			var response = await client.GetAsync(RequestUri);
+
+			if (response.IsSuccessStatusCode)
+			{
+				var json = await response.Content.ReadAsStringAsync();
+				var productos = JsonConvert.DeserializeObject<List<Mplanta>>(json);
+				return new ObservableCollection<Mplanta>(productos);
+			}
+			else
+			{
+				// Manejo de errores
+				return new ObservableCollection<Mplanta>();
+			}
 		}
 
 		//lleva a la vista de detalles de la planta
@@ -63,7 +104,7 @@ namespace AppSmartPlant.ViewModels
 		//eliminar planta
 		public async Task Eliminar(Mplanta parametros)
 		{
-			await DisplayAlert($"Eliminar planta {parametros.NamePlant}", $"¿Seguro que quiere eliminar la planta {parametros.NamePlant}?","Aceptar","Cancelar");
+			await DisplayAlert($"Eliminar planta {parametros.namePlant}", $"¿Seguro que quiere eliminar la planta {parametros.namePlant}?","Aceptar","Cancelar");
 		}
 
 		#endregion
